@@ -681,7 +681,121 @@
       <span id="theme-icon">☀️</span> <span id="theme-text">Modo Claro</span>
     </button>
     <div class="logo-wrapper" style="margin-bottom: 15px; animation: slideDown 0.8s ease-out;">
-      <img src="logo.jpg" alt="Logo" style="max-height: 120px; width: auto; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.1); transition: transform 0.3s ease;">
+      <!-- Logo Estilizado Dinâmico (Danos Aparentes) em SVG de Alta Fidelidade -->
+      <svg viewBox="0 0 160 120" width="160" height="120" style="border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.1); background: linear-gradient(135deg, #1e293b, #0f172a); transition: transform 0.3s ease; cursor: pointer;" class="app-logo-svg" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" aria-label="Logo Danos Aparentes" id="app-dynamic-logo">
+        <defs>
+          <linearGradient id="logo-neon-glow-inspecao" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#3b82f6" />
+            <stop offset="50%" stop-color="#8b5cf6" />
+            <stop offset="100%" stop-color="#ef4444" />
+          </linearGradient>
+          <filter id="logo-glow-inspecao" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="3" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+        
+        <!-- Elementos de diagnóstico (Radar/Mira de Fundo) -->
+        <circle cx="80" cy="55" r="42" fill="none" stroke="rgba(59, 130, 246, 0.15)" stroke-width="1.2" stroke-dasharray="4,4" />
+        <circle cx="80" cy="55" r="28" fill="none" stroke="rgba(59, 130, 246, 0.1)" stroke-width="1" />
+        <line x1="80" y1="10" x2="80" y2="100" stroke="rgba(59, 130, 246, 0.08)" stroke-width="1" stroke-dasharray="2,2" />
+        <line x1="30" y1="55" x2="130" y2="55" stroke="rgba(59, 130, 246, 0.08)" stroke-width="1" stroke-dasharray="2,2" />
+
+        <!-- 1. Silhueta Esportiva Estilizada do CARRO -->
+        <g id="logo-shape-car">
+          <path d="M35,63 C38,63 45,62 52,57 C58,53 68,43 76,41 C84,39 105,39 112,42 C118,45 123,53 126,57 C128,60 132,62 135,63 C138,64 139,66 138,68 C136,70 132,70 130,70 L118,70 C118,66 114,62 109,62 C104,62 100,66 100,70 L68,70 C68,66 64,62 59,62 C54,62 50,66 50,70 L38,70 C34,70 32,68 32,66 C32,64 33,63 35,63 Z" fill="none" stroke="url(#logo-neon-glow-inspecao)" stroke-width="2.5" filter="url(#logo-glow-inspecao)" stroke-linejoin="round" />
+          <circle cx="59" cy="70" r="5" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5" />
+          <circle cx="109" cy="70" r="5" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5" />
+          <circle cx="59" cy="70" r="1.8" fill="#ef4444" />
+          <circle cx="109" cy="70" r="1.8" fill="#ef4444" />
+          <!-- Pontos de Inspeção e Conexões -->
+          <circle cx="48" cy="57" r="3.2" fill="#ef4444" filter="url(#logo-glow-inspecao)" />
+          <circle cx="95" cy="43" r="3.2" fill="#ef4444" filter="url(#logo-glow-inspecao)" />
+          <circle cx="120" cy="56" r="3.2" fill="#ef4444" filter="url(#logo-glow-inspecao)" />
+          <path d="M48,57 L40,47 L20,47" fill="none" stroke="rgba(239, 68, 68, 0.4)" stroke-width="1" />
+          <path d="M120,56 L128,46 L144,46" fill="none" stroke="rgba(239, 68, 68, 0.4)" stroke-width="1" />
+        </g>
+
+        <!-- 2. Silhueta Estilizada da MOTOCICLETA -->
+        <g id="logo-shape-moto" style="display: none;">
+          <circle cx="45" cy="70" r="11" fill="none" stroke="url(#logo-neon-glow-inspecao)" stroke-width="2" filter="url(#logo-glow-inspecao)" />
+          <circle cx="115" cy="70" r="11" fill="none" stroke="url(#logo-neon-glow-inspecao)" stroke-width="2" filter="url(#logo-glow-inspecao)" />
+          <circle cx="45" cy="70" r="3" fill="#3b82f6" />
+          <circle cx="115" cy="70" r="3" fill="#3b82f6" />
+          <path d="M45,70 L56,43 L62,43 M56,43 L72,48 C78,48 86,41 96,41 L107,52 L115,70 M72,48 L75,60 L95,65 L115,70 M85,55 L108,55 L112,70" fill="none" stroke="url(#logo-neon-glow-inspecao)" stroke-width="2" filter="url(#logo-glow-inspecao)" stroke-linejoin="round" />
+          <line x1="58" y1="43" x2="65" y2="40" stroke="url(#logo-neon-glow-inspecao)" stroke-width="2" filter="url(#logo-glow-inspecao)" />
+          <path d="M82,48 C88,48 95,50 100,52" stroke="url(#logo-neon-glow-inspecao)" stroke-width="2" filter="url(#logo-glow-inspecao)" />
+          <!-- Pontos de Inspeção e Conexões -->
+          <circle cx="58" cy="46" r="3.2" fill="#ef4444" filter="url(#logo-glow-inspecao)" />
+          <circle cx="85" cy="47" r="3.2" fill="#ef4444" filter="url(#logo-glow-inspecao)" />
+          <circle cx="106" cy="62" r="3.2" fill="#ef4444" filter="url(#logo-glow-inspecao)" />
+          <path d="M58,46 L50,36 L30,36" fill="none" stroke="rgba(239, 68, 68, 0.4)" stroke-width="1" />
+          <path d="M106,62 L114,52 L134,52" fill="none" stroke="rgba(239, 68, 68, 0.4)" stroke-width="1" />
+        </g>
+
+        <!-- 3. Silhueta Estilizada do CAMINHÃO -->
+        <g id="logo-shape-truck" style="display: none;">
+          <path d="M32,70 L32,46 C32,44 34,42 37,42 L66,42 C70,42 75,44 78,48 L84,56 L124,56 C126,56 128,58 128,60 L128,70 L122,70 C122,65 118,61 113,61 C108,61 104,65 104,70 L96,70 C96,65 92,61 87,61 C82,61 78,65 78,70 L56,70 C56,65 52,61 47,61 C42,61 38,65 38,70 Z" fill="none" stroke="url(#logo-neon-glow-inspecao)" stroke-width="2" filter="url(#logo-glow-inspecao)" stroke-linejoin="round" />
+          <line x1="78" y1="48" x2="78" y2="70" stroke="url(#logo-neon-glow-inspecao)" stroke-width="1.5" filter="url(#logo-glow-inspecao)" />
+          <path d="M40,46 L65,46 L72,55 L40,55 Z" fill="none" stroke="url(#logo-neon-glow-inspecao)" stroke-width="1.5" filter="url(#logo-glow-inspecao)" />
+          <circle cx="47" cy="70" r="5.5" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5" />
+          <circle cx="87" cy="70" r="5.5" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5" />
+          <circle cx="113" cy="70" r="5.5" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5" />
+          <circle cx="47" cy="70" r="1.8" fill="#ef4444" />
+          <circle cx="87" cy="70" r="1.8" fill="#ef4444" />
+          <circle cx="113" cy="70" r="1.8" fill="#ef4444" />
+          <!-- Pontos de Inspeção e Conexões -->
+          <circle cx="36" cy="46" r="3.2" fill="#ef4444" filter="url(#logo-glow-inspecao)" />
+          <circle cx="68" cy="58" r="3.2" fill="#ef4444" filter="url(#logo-glow-inspecao)" />
+          <circle cx="112" cy="62" r="3.2" fill="#ef4444" filter="url(#logo-glow-inspecao)" />
+          <path d="M36,46 L28,36 L15,36" fill="none" stroke="rgba(239, 68, 68, 0.4)" stroke-width="1" />
+          <path d="M112,62 L120,52 L140,52" fill="none" stroke="rgba(239, 68, 68, 0.4)" stroke-width="1" />
+        </g>
+
+        <!-- 4. Silhueta Estilizada do UTILITÁRIO / VAN -->
+        <g id="logo-shape-van" style="display: none;">
+          <path d="M32,70 L32,44 C32,42 34,40 37,40 L108,40 C112,40 118,44 122,50 L128,58 L128,70 L119,70 C119,65 115,61 110,61 C105,61 101,65 101,70 L60,70 C60,65 56,61 51,61 C46,61 42,65 42,70 Z" fill="none" stroke="url(#logo-neon-glow-inspecao)" stroke-width="2" filter="url(#logo-glow-inspecao)" stroke-linejoin="round" />
+          <path d="M96,44 L110,44 L118,52 L96,52 Z" fill="none" stroke="url(#logo-neon-glow-inspecao)" stroke-width="1.5" filter="url(#logo-glow-inspecao)" />
+          <path d="M60,44 L92,44 L92,52 L60,52 Z" fill="none" stroke="url(#logo-neon-glow-inspecao)" stroke-width="1.2" filter="url(#logo-glow-inspecao)" stroke-dasharray="2,1" />
+          <circle cx="51" cy="70" r="5" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5" />
+          <circle cx="110" cy="70" r="5" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5" />
+          <circle cx="51" cy="70" r="1.8" fill="#ef4444" />
+          <circle cx="110" cy="70" r="1.8" fill="#ef4444" />
+          <!-- Pontos de Inspeção e Conexões -->
+          <circle cx="42" cy="48" r="3.2" fill="#ef4444" filter="url(#logo-glow-inspecao)" />
+          <circle cx="82" cy="46" r="3.2" fill="#ef4444" filter="url(#logo-glow-inspecao)" />
+          <circle cx="116" cy="56" r="3.2" fill="#ef4444" filter="url(#logo-glow-inspecao)" />
+          <path d="M42,48 L34,38 L20,38" fill="none" stroke="rgba(239, 68, 68, 0.4)" stroke-width="1" />
+          <path d="M116,56 L124,46 L140,46" fill="none" stroke="rgba(239, 68, 68, 0.4)" stroke-width="1" />
+        </g>
+
+        <!-- 5. Silhueta Estilizada do ÔNIBUS -->
+        <g id="logo-shape-bus" style="display: none;">
+          <path d="M30,70 L30,38 C30,36 32,34 35,34 L122,34 C126,34 128,36 128,38 L128,70 L121,70 C121,65 117,61 112,61 C107,61 103,65 103,70 L96,70 C96,65 92,61 87,61 C82,61 78,65 78,70 L55,70 C55,65 51,61 46,61 C41,61 37,65 37,70 Z" fill="none" stroke="url(#logo-neon-glow-inspecao)" stroke-width="2" filter="url(#logo-glow-inspecao)" stroke-linejoin="round" />
+          <line x1="30" y1="52" x2="128" y2="52" stroke="url(#logo-neon-glow-inspecao)" stroke-width="1.2" stroke-dasharray="3,3" filter="url(#logo-glow-inspecao)" />
+          <rect x="36" y="38" width="86" height="10" rx="1" fill="none" stroke="url(#logo-neon-glow-inspecao)" stroke-width="1" filter="url(#logo-glow-inspecao)" />
+          <rect x="58" y="55" width="20" height="10" rx="1" fill="none" stroke="url(#logo-neon-glow-inspecao)" stroke-width="1" filter="url(#logo-glow-inspecao)" />
+          <rect x="36" y="55" width="16" height="10" rx="1" fill="none" stroke="url(#logo-neon-glow-inspecao)" stroke-width="1" filter="url(#logo-glow-inspecao)" />
+          <circle cx="46" cy="70" r="5.5" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5" />
+          <circle cx="87" cy="70" r="5.5" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5" />
+          <circle cx="112" cy="70" r="5.5" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5" />
+          <circle cx="46" cy="70" r="1.8" fill="#ef4444" />
+          <circle cx="87" cy="70" r="1.8" fill="#ef4444" />
+          <circle cx="112" cy="70" r="1.8" fill="#ef4444" />
+          <!-- Pontos de Inspeção e Conexões -->
+          <circle cx="34" cy="42" r="3.2" fill="#ef4444" filter="url(#logo-glow-inspecao)" />
+          <circle cx="78" cy="42" r="3.2" fill="#ef4444" filter="url(#logo-glow-inspecao)" />
+          <circle cx="120" cy="58" r="3.2" fill="#ef4444" filter="url(#logo-glow-inspecao)" />
+          <path d="M34,42 L26,32 L15,32" fill="none" stroke="rgba(239, 68, 68, 0.4)" stroke-width="1" />
+          <path d="M120,58 L128,48 L144,48" fill="none" stroke="rgba(239, 68, 68, 0.4)" stroke-width="1" />
+        </g>
+        
+        <!-- Texto de Danos Aparentes Incorporado -->
+        <text x="80" y="102" text-anchor="middle" fill="#94a3b8" font-family="'Outfit', sans-serif" font-size="8.5" font-weight="800" letter-spacing="1.5">DANOS APARENTES</text>
+      </svg>
     </div>
     <h1 style="margin-top: 10px;">Vistoria de Danos Aparentes</h1>
     <p>Mapeamento interativo de lataria com alta fidelidade e relatórios compartilháveis</p>
@@ -706,6 +820,14 @@
         <label for="info-plate">Placa do Veículo</label>
         <input type="text" id="info-plate" class="info-input" placeholder="Ex: ABC1D23">
       </div>
+    </div>
+    <div class="owner-actions" style="display: flex; gap: 12px; margin-top: 15px; justify-content: flex-end; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 12px;">
+      <button type="button" class="btn btn-secondary" style="font-size: 0.82rem; padding: 8px 16px; border-radius: 8px; font-weight: 700; border: 1px solid rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.1); color: #ef4444;" onclick="clearAllData()">
+        ⚠️ Limpar Tudo
+      </button>
+      <button type="button" class="btn btn-secondary" style="font-size: 0.82rem; padding: 8px 16px; border-radius: 8px; font-weight: 700; border: 1px solid rgba(59, 130, 246, 0.3); background: rgba(59, 130, 246, 0.1); color: #3b82f6;" onclick="addAnotherVehicle()">
+        ➕ Acrescentar Outro Veículo
+      </button>
     </div>
   </div>
 
@@ -3136,6 +3258,48 @@
       }
     }
 
+    // Funções auxiliares para formatação e capitalização de campos de texto
+    function formatPlate(value) {
+      // Placas Mercosul e Brasil: remove tudo não-alfanumérico e limita a 7 caracteres no máximo
+      let clean = value.replace(/[^a-zA-Z0-9]/g, '').toUpperCase();
+      let letters = clean.slice(0, 3).replace(/[^A-Z]/g, '');
+      let rest = clean.slice(letters.length).slice(0, 7 - letters.length);
+      return letters + rest;
+    }
+
+    function formatPhone(value) {
+      // Máscara brasileira de telefone (DDD) XXXXX-XXXX
+      let clean = value.replace(/\D/g, '').slice(0, 11);
+      if (clean.length === 0) return '';
+      if (clean.length <= 2) return `(${clean}`;
+      if (clean.length <= 6) return `(${clean.slice(0, 2)}) ${clean.slice(2)}`;
+      if (clean.length <= 10) return `(${clean.slice(0, 2)}) ${clean.slice(2, 6)}-${clean.slice(6)}`;
+      return `(${clean.slice(0, 2)}) ${clean.slice(2, 7)}-${clean.slice(7)}`;
+    }
+
+    function capitalizeWords(value) {
+      // Capitaliza a primeira letra de cada palavra (nomes e modelos)
+      return value.replace(/(^\w|\s\w)/g, m => m.toUpperCase());
+    }
+
+    function capitalizeSentences(value) {
+      if (!value) return '';
+      // Capitaliza a primeira letra do texto e após pontos finais
+      return value.replace(/(^\s*\w|[.!?]\s+\w)/g, m => m.toUpperCase());
+    }
+
+    function applyFormatting(el, fn) {
+      const start = el.selectionStart;
+      const end = el.selectionEnd;
+      const orig = el.value;
+      const formatted = fn(orig);
+      if (orig !== formatted) {
+        el.value = formatted;
+        const diff = formatted.length - orig.length;
+        el.setSelectionRange(start + diff, end + diff);
+      }
+    }
+
     // Carregar dados de proprietário do localStorage
     window.onload = () => {
       // Carregar tema
@@ -3150,33 +3314,137 @@
 
       const savedOwner = localStorage.getItem('vistoria_owner');
       const savedPhone = localStorage.getItem('vistoria_phone');
-      const savedBrand = localStorage.getItem('vistoria_brand');
-      const savedPlate = localStorage.getItem('vistoria_plate');
       const savedNotes = localStorage.getItem('vistoria_notes');
 
-      if (savedOwner) document.getElementById('info-owner').value = savedOwner;
-      if (savedPhone) document.getElementById('info-phone').value = savedPhone;
-      if (savedBrand) document.getElementById('info-brand').value = savedBrand;
-      if (savedPlate) document.getElementById('info-plate').value = savedPlate;
-      if (savedNotes) document.getElementById('input-general-notes').value = savedNotes;
+      // Migração e carregamento de marca/modelo e placa específicos do veículo atual
+      let savedBrand = localStorage.getItem(`vistoria_brand_${currentVehicle}`);
+      let savedPlate = localStorage.getItem(`vistoria_plate_${currentVehicle}`);
 
-      // Eventos para salvar dados do proprietário na digitação
-      ['info-owner', 'info-phone', 'info-brand', 'info-plate', 'input-general-notes'].forEach(id => {
-        document.getElementById(id).addEventListener('input', () => {
-          localStorage.setItem('vistoria_owner', document.getElementById('info-owner').value);
-          localStorage.setItem('vistoria_phone', document.getElementById('info-phone').value);
-          localStorage.setItem('vistoria_brand', document.getElementById('info-brand').value);
-          localStorage.setItem('vistoria_plate', document.getElementById('info-plate').value);
-          localStorage.setItem('vistoria_notes', document.getElementById('input-general-notes').value);
-        });
+      if (currentVehicle === 'car') {
+        if (!savedBrand && localStorage.getItem('vistoria_brand')) {
+          savedBrand = localStorage.getItem('vistoria_brand');
+          localStorage.setItem('vistoria_brand_car', savedBrand);
+        }
+        if (!savedPlate && localStorage.getItem('vistoria_plate')) {
+          savedPlate = localStorage.getItem('vistoria_plate');
+          localStorage.setItem('vistoria_plate_car', savedPlate);
+        }
+      }
+
+      const inputOwner = document.getElementById('info-owner');
+      const inputPhone = document.getElementById('info-phone');
+      const inputBrand = document.getElementById('info-brand');
+      const inputPlate = document.getElementById('info-plate');
+      const inputNotes = document.getElementById('input-general-notes');
+
+      if (savedOwner) {
+        inputOwner.value = savedOwner;
+        applyFormatting(inputOwner, capitalizeWords);
+      }
+      if (savedPhone) {
+        inputPhone.value = savedPhone;
+        applyFormatting(inputPhone, formatPhone);
+      }
+      if (savedBrand) {
+        inputBrand.value = savedBrand;
+        applyFormatting(inputBrand, capitalizeWords);
+      }
+      if (savedPlate) {
+        inputPlate.value = savedPlate;
+        applyFormatting(inputPlate, formatPlate);
+      }
+      if (savedNotes) {
+        inputNotes.value = savedNotes;
+        applyFormatting(inputNotes, capitalizeSentences);
+      }
+
+      // Eventos para formatar e salvar na digitação em tempo real
+      inputOwner.addEventListener('input', () => {
+        applyFormatting(inputOwner, capitalizeWords);
+        localStorage.setItem('vistoria_owner', inputOwner.value);
       });
 
-      setupSvgListeners();
-      setupTooltipAndHoverEvents();
-      applySavedDamagesColors();
+      inputPhone.addEventListener('input', () => {
+        applyFormatting(inputPhone, formatPhone);
+        localStorage.setItem('vistoria_phone', inputPhone.value);
+      });
+
+      inputBrand.addEventListener('input', () => {
+        applyFormatting(inputBrand, capitalizeWords);
+        localStorage.setItem(`vistoria_brand_${currentVehicle}`, inputBrand.value);
+      });
+
+      inputPlate.addEventListener('input', () => {
+        applyFormatting(inputPlate, formatPlate);
+        localStorage.setItem(`vistoria_plate_${currentVehicle}`, inputPlate.value);
+      });
+
+      inputNotes.addEventListener('input', () => {
+        applyFormatting(inputNotes, capitalizeSentences);
+        localStorage.setItem('vistoria_notes', inputNotes.value);
+      });
+
+      // Inicializa o veículo padrão (o que sincroniza o logotipo dinâmico e exibe o SVG correto)
+      selectVehicle(currentVehicle);
       renderDamagesList();
       updateStats();
     };
+
+    function clearAllData() {
+      if (!confirm("Deseja realmente limpar todos os dados desta vistoria para iniciar uma nova? Essa ação não pode ser desfeita.")) return;
+      
+      // Limpar localStorage
+      const keysToRemove = [
+        'vistoria_owner', 'vistoria_phone', 'vistoria_notes', 'saved_damages',
+        'vistoria_brand', 'vistoria_plate',
+        'vistoria_brand_car', 'vistoria_plate_car',
+        'vistoria_brand_moto', 'vistoria_plate_moto',
+        'vistoria_brand_truck', 'vistoria_plate_truck',
+        'vistoria_brand_van', 'vistoria_plate_van',
+        'vistoria_brand_bus', 'vistoria_plate_bus'
+      ];
+      keysToRemove.forEach(k => localStorage.removeItem(k));
+      
+      // Resetar variáveis
+      registeredDamages = [];
+      currentVehicle = 'car';
+      
+      // Limpar inputs da UI
+      document.getElementById('info-owner').value = '';
+      document.getElementById('info-phone').value = '';
+      document.getElementById('info-brand').value = '';
+      document.getElementById('info-plate').value = '';
+      document.getElementById('input-general-notes').value = '';
+      
+      // Sincronizar UI
+      selectVehicle('car');
+      renderDamagesList();
+      updateStats();
+      
+      speakText("Todos os dados foram apagados. Nova vistoria iniciada.");
+      alert("Todos os dados foram limpos!");
+    }
+
+    function addAnotherVehicle() {
+      speakText("Selecione o tipo do novo veículo nas opções abaixo e preencha a marca, modelo e placa correspondentes.");
+      
+      // Destacar visualmente o seletor de veículos por 1.5 segundos
+      const selectorGroup = document.querySelector('.selector-group');
+      if (selectorGroup) {
+        selectorGroup.style.outline = '3px solid var(--primary)';
+        selectorGroup.style.borderRadius = '8px';
+        selectorGroup.style.transition = 'outline 0.3s ease';
+        setTimeout(() => {
+          selectorGroup.style.outline = 'none';
+        }, 1500);
+        selectorGroup.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      
+      // Focar no campo de Marca/Modelo
+      setTimeout(() => {
+        document.getElementById('info-brand').focus();
+      }, 800);
+    }
 
     function setupSvgListeners() {
       document.querySelectorAll('.part').forEach(part => {
@@ -3378,6 +3646,40 @@
       const vehicleIcons = { car: '🚗', moto: '🏍️', truck: '🚛', bus: '🚌', van: '🚐' };
       document.getElementById('vehicle-icon-indicator').innerText = vehicleIcons[type];
 
+      // Atualizar silhueta neon no logotipo dinâmico ("Danos Aparentes")
+      const logoTypes = ['car', 'moto', 'truck', 'van', 'bus'];
+      logoTypes.forEach(t => {
+        const logoEl = document.getElementById(`logo-shape-${t}`);
+        if (logoEl) {
+          logoEl.style.display = (t === type) ? 'block' : 'none';
+        }
+      });
+
+      // Carregar dinamicamente a marca/placa do veículo selecionado
+      const inputBrand = document.getElementById('info-brand');
+      const inputPlate = document.getElementById('info-plate');
+      if (inputBrand && inputPlate) {
+        let savedBrand = localStorage.getItem(`vistoria_brand_${type}`) || '';
+        let savedPlate = localStorage.getItem(`vistoria_plate_${type}`) || '';
+        
+        // Se for carro e não tiver dados específicos, mas tiver dados antigos genéricos, fazer migração
+        if (type === 'car') {
+          if (!savedBrand && localStorage.getItem('vistoria_brand')) {
+            savedBrand = localStorage.getItem('vistoria_brand');
+            localStorage.setItem('vistoria_brand_car', savedBrand);
+          }
+          if (!savedPlate && localStorage.getItem('vistoria_plate')) {
+            savedPlate = localStorage.getItem('vistoria_plate');
+            localStorage.setItem('vistoria_plate_car', savedPlate);
+          }
+        }
+
+        inputBrand.value = savedBrand;
+        applyFormatting(inputBrand, capitalizeWords);
+        inputPlate.value = savedPlate;
+        applyFormatting(inputPlate, formatPlate);
+      }
+
       selectView('lateral-left');
     }
 
@@ -3577,16 +3879,43 @@
     function generateReportText(isWhatsApp = false) {
       const owner = document.getElementById('info-owner').value.trim() || 'Não informado';
       const phone = document.getElementById('info-phone').value.trim() || 'Não informado';
-      const brand = document.getElementById('info-brand').value.trim() || 'Não informado';
-      const plate = document.getElementById('info-plate').value.trim() || 'Não informado';
 
-      const vehicleLabels = { car: '🚗 Automóvel', moto: '🏍️ Motocicleta', truck: '🚛 Caminhão', bus: '🚌 Ônibus', van: '🚐 Utilitário', custom: '➕ Veículo Customizado' };
-      const viewLabels = {
-        'lateral-left': 'Lateral Esquerda',
-        'lateral-right': 'Lateral Direita',
-        'frontal': 'Frontal',
-        'traseira': 'Traseira'
+      const vehicleTypes = ['car', 'moto', 'truck', 'van', 'bus'];
+      const vehicleLabels = {
+        car: '🚗 Automóvel',
+        moto: '🏍️ Motocicleta',
+        truck: '🚛 Caminhão',
+        van: '🚐 Utilitário / Van',
+        bus: '🚌 Ônibus'
       };
+      
+      const activeVehicles = [];
+      
+      vehicleTypes.forEach(t => {
+        let brandVal = '';
+        let plateVal = '';
+        
+        if (t === currentVehicle) {
+          brandVal = document.getElementById('info-brand').value.trim();
+          plateVal = document.getElementById('info-plate').value.trim();
+        } else {
+          brandVal = (localStorage.getItem(`vistoria_brand_${t}`) || '').trim();
+          plateVal = (localStorage.getItem(`vistoria_plate_${t}`) || '').trim();
+        }
+        
+        const vehicleDamages = registeredDamages.filter(d => d.vehicle === t);
+        
+        // Incluir se tiver marca, placa, avarias ou se for o veículo atual
+        if (brandVal || plateVal || vehicleDamages.length > 0 || t === currentVehicle) {
+          activeVehicles.push({
+            type: t,
+            label: vehicleLabels[t] || t,
+            brand: brandVal || 'Não informado',
+            plate: plateVal || 'Não informado',
+            damages: vehicleDamages
+          });
+        }
+      });
 
       let text = "";
       if (isWhatsApp) {
@@ -3595,61 +3924,71 @@
         text += `*======================================*\n\n`;
         text += `*Proprietário:* ${owner}\n`;
         text += `*Telefone:* ${phone}\n`;
-        text += `*Veículo/Modelo:* ${brand}\n`;
-        text += `*Placa:* ${plate}\n`;
         text += `*Data/Hora:* ${new Date().toLocaleString('pt-BR')}\n\n`;
         text += `--------------------------------------\n`;
-        text += `*AVARIAS CONSTATADAS:*\n`;
-        text += `--------------------------------------\n`;
+        text += `*VEÍCULOS INSPECCIONADOS:*\n`;
+        text += `--------------------------------------\n\n`;
       } else {
         text += `======================================\n`;
         text += `       RELATÓRIO DE VISTORIA VEICULAR   \n`;
         text += `======================================\n\n`;
         text += `Proprietário: ${owner}\n`;
         text += `Telefone: ${phone}\n`;
-        text += `Veículo/Modelo: ${brand}\n`;
-        text += `Placa: ${plate}\n`;
         text += `Data/Hora: ${new Date().toLocaleString('pt-BR')}\n\n`;
         text += `--------------------------------------\n`;
-        text += `AVARIAS CONSTATADAS:\n`;
-        text += `--------------------------------------\n`;
+        text += `VEÍCULOS INSPECCIONADOS:\n`;
+        text += `--------------------------------------\n\n`;
       }
 
-      if (registeredDamages.length === 0) {
-        text += `Nenhuma avaria foi registrada para o veículo.\n`;
-      } else {
-        registeredDamages.forEach((d, index) => {
-          const typeName = d.typeName;
-          const vehicleText = vehicleLabels[d.vehicle] || d.vehicle;
-          
-          if (isWhatsApp) {
-            text += `${index + 1}. [${vehicleText}] - Peça: ${d.partName}\n`;
-            text += `Avaria: ${typeName}\n`;
-            text += `Perspectiva: ${viewLabels[d.view]}\n`;
-            if (d.notes) text += `Observação: "${d.notes}"\n`;
-            text += `\n`;
-          } else {
-            text += `${index + 1}. [${vehicleText}] - Peça: ${d.partName}\n`;
-            text += `   Avaria: ${typeName}\n`;
-            text += `   Perspectiva: ${viewLabels[d.view]}\n`;
-            if (d.notes) text += `   Observação: "${d.notes}"\n`;
-            text += `\n`;
-          }
-        });
-      }
+      activeVehicles.forEach((v, vIndex) => {
+        const indexText = `(${vIndex + 1}/${activeVehicles.length})`;
+        if (isWhatsApp) {
+          text += `*${indexText} ${v.label.toUpperCase()}*\n`;
+          text += `*Marca/Modelo:* ${v.brand}\n`;
+          text += `*Placa:* ${v.plate}\n`;
+          text += `*Avarias Constatadas:*\n`;
+        } else {
+          text += `${indexText} ${v.label.toUpperCase()}\n`;
+          text += `Marca/Modelo: ${v.brand}\n`;
+          text += `Placa: ${v.plate}\n`;
+          text += `Avarias Constatadas:\n`;
+        }
+        
+        if (v.damages.length === 0) {
+          text += `Nenhuma avaria registrada para este veículo.\n\n`;
+        } else {
+          v.damages.forEach((d, dIndex) => {
+            const viewLabels = {
+              'lateral-left': 'Lateral Esquerda',
+              'lateral-right': 'Lateral Direita',
+              'frontal': 'Frontal',
+              'traseira': 'Traseira'
+            };
+            const viewText = viewLabels[d.view] || d.view;
+            if (isWhatsApp) {
+              text += `- Peça: ${d.partName} | Avaria: ${d.typeName} (${viewText})\n`;
+              if (d.notes) text += `  Obs: "${d.notes}"\n`;
+            } else {
+              text += `- Peça: ${d.partName} | Avaria: ${d.typeName} (${viewText})\n`;
+              if (d.notes) text += `  Obs: "${d.notes}"\n`;
+            }
+          });
+          text += `\n`;
+        }
+      });
 
       const generalNotes = document.getElementById('input-general-notes').value.trim();
 
       if (isWhatsApp) {
         text += `--------------------------------------\n`;
-        text += `Total de Avarias: ${registeredDamages.length}\n`;
+        text += `*Total Geral de Avarias:* ${registeredDamages.length}\n`;
         text += `======================================\n`;
         if (generalNotes) {
           text += `\n*Observações Gerais:*\n${generalNotes}\n======================================\n`;
         }
       } else {
         text += `--------------------------------------\n`;
-        text += `Total de Avarias: ${registeredDamages.length}\n`;
+        text += `Total Geral de Avarias: ${registeredDamages.length}\n`;
         text += `======================================\n`;
         if (generalNotes) {
           text += `\nObservações Gerais:\n${generalNotes}\n======================================\n`;
