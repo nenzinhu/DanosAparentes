@@ -4,6 +4,7 @@ import type { VehicleEventType } from '@/src/lib/vehicleEvidence/types'
 import { getAuthzFromRequest } from '@/src/lib/server/rbac'
 import { toEventsTenantId } from '@/src/lib/vehicleEvidence/vehicleIdentity'
 import { supabaseAdmin } from '@/src/lib/server/supabaseAdmin'
+import { dispatchVehicleEvent, buildEventPayload } from '@/src/lib/server/webhooks'
 
 async function assertCanAccessVehicle(
   userId: string,
@@ -97,6 +98,18 @@ export async function POST(
     if (!event) {
       return NextResponse.json({ error: 'Falha ao criar evento' }, { status: 500 })
     }
+
+    // Dispara webhooks outbound para sistemas de outras empresas (não bloqueia a resposta)
+    dispatchVehicleEvent(
+      tenantId,
+      buildEventPayload(
+        event.id,
+        type as string,
+        vehicleId,
+        event.createdAt,
+        { title, description, location, type },
+      ),
+    )
 
     return NextResponse.json({ event }, { status: 201 })
   } catch (err) {
