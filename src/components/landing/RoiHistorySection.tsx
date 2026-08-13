@@ -52,17 +52,17 @@ const brl = new Intl.NumberFormat('pt-BR', {
 })
 
 const ANTES_FLOW = [
-  '500 veículos',
+  'Frota de veículos',
   'Fotos espalhadas',
   'WhatsApp',
   'Planilhas',
   'Discussões',
   'Danos não identificados',
-  'Prejuízo',
+  'Perda absorvida pela empresa',
 ]
 
 const DEPOIS_FLOW = [
-  '500 veículos',
+  'Frota de veículos',
   'Histórico centralizado',
   'Comparação entre inspeções',
   'Novo dano identificado',
@@ -78,9 +78,16 @@ const CUSTO_INVISIVEL = [
   { n: '04', title: 'Prejuízo absorvido', desc: 'A empresa arca com o custo que poderia ter sido cobrado.' },
 ]
 
-function FlowStep({ label, tone }: { label: string; tone: 'before' | 'after' }) {
+function FlowStep({ label, tone, highlight = false }: { label: string; tone: 'before' | 'after'; highlight?: boolean }) {
   return (
-    <li className="flex items-center justify-between gap-3 rounded-lg border border-[var(--card-border)] bg-[var(--bg-main)]/70 px-4 py-2.5 text-sm font-semibold text-[var(--text-main)]">
+    <li
+      className={
+        'flex items-center justify-between gap-3 rounded-lg px-4 py-2.5 text-sm font-semibold ' +
+        (highlight
+          ? 'border border-[var(--signal-bright)]/60 bg-[color-mix(in_srgb,var(--signal)_12%,transparent)] text-[var(--signal-bright)] text-sm sm:text-base'
+          : 'border border-[var(--card-border)] bg-[var(--bg-main)]/70 text-[var(--text-main)]')
+      }
+    >
       <span>{label}</span>
       {tone === 'after' && (
         <span aria-hidden className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-black">
@@ -169,7 +176,7 @@ export default function RoiHistorySection() {
               <ol className="flex flex-col gap-1.5 list-none m-0 p-0">
                 {ANTES_FLOW.map((step, i) => (
                   <div key={step}>
-                    <FlowStep label={step} tone="before" />
+                    <FlowStep label={step} tone="before" highlight={i === ANTES_FLOW.length - 1} />
                     {i < ANTES_FLOW.length - 1 && <FlowArrow />}
                   </div>
                 ))}
@@ -218,6 +225,14 @@ export default function RoiHistorySection() {
       </Reveal>
 
       {/* SIMULADOR DE ROI */}
+      <Reveal className="mt-16 text-center flex flex-col items-center">
+        <h3 className="font-display text-2xl sm:text-3xl font-bold uppercase tracking-tight text-[var(--signal-bright)] mb-3 max-w-2xl [text-wrap:balance]">
+          Pequenos danos se repetem. O custo também.
+        </h3>
+        <p className="max-w-xl text-sm sm:text-base text-[var(--text-muted)] leading-relaxed mb-8">
+          Descubra quanto essas perdas podem representar na sua operação.
+        </p>
+      </Reveal>
       <Reveal className="mt-16">
         <div className="relative rounded-2xl border border-[var(--card-border)] bg-[var(--panel-bg)]/60 overflow-hidden px-5 sm:px-8 py-8 sm:py-10">
           <h3 className="text-center font-display text-xl sm:text-2xl font-bold uppercase tracking-tight text-[var(--text-main)] mb-2">
