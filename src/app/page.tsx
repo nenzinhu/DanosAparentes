@@ -52,6 +52,7 @@ const FAQSection = dynamic(() => import('../components/FAQSection'));
 const PdfPreviewSection = dynamic(() => import('../components/PdfPreviewSection'));
 const BlogTeaserSection = dynamic(() => import('../components/BlogTeaserSection'));
 const FinalCtaSection = dynamic(() => import('../components/FinalCtaSection'));
+const RoiHistorySection = dynamic(() => import('../components/landing/RoiHistorySection'));
 
 const HOME_PUBLISHED_DATE = '2026-01-15'
 const HOME_UPDATED_DATE = '2026-08-06'
@@ -404,6 +405,9 @@ export default function LandingPage() {
           </div>
         </div>
       </main>
+
+      {/* Custo de não ter histórico — seção de ROI (logo após a Hero) */}
+      <RoiHistorySection />
 
       {/* Trust strip — diferenciais mais fortes logo no topo */}
       <section
