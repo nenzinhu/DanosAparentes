@@ -19,8 +19,15 @@ export interface Vehicle {
   vehicleType?: string
   brand?: string
   model?: string
+  submodel?: string
+  version?: string
   year?: number | null
+  modelYear?: number | null
   color?: string
+  /** URL do logo da marca vinda da consulta de placa (apiplacas/wdapi). */
+  logoUrl?: string | null
+  /** Resumo FIPE público (sem códigos internos), quando disponível. */
+  fipePublic?: Record<string, unknown> | null
   createdAt: string
   updatedAt: string
 }

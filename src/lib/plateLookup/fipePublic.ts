@@ -1,4 +1,4 @@
-import type { FipePublicSummary } from '../../types'
+import type { FipePublicSummary, VehiclePlateEnrichment } from '../../types'
 
 type FipeRawRow = {
   ano_modelo?: unknown
@@ -121,9 +121,62 @@ export function sanitizePlateLookupPayload(
   data: Record<string, unknown>,
 ): Record<string, unknown> {
   const fipePublic = extractFipePublic(data)
-  const { fipe: _fipe, fipePublic: _old, ...rest } = data
+  const { fipe: _fipe, fipePublic: _old, logo: _logo, ...rest } = data
   void _fipe
   void _old
-  if (fipePublic) return { ...rest, fipePublic }
+  void _logo
+  const enrichment = extractPlateEnrichment(data)
+  if (fipePublic) rest.fipePublic = fipePublic
+  if (enrichment.logoUrl) rest.logoUrl = enrichment.logoUrl
+  if (enrichment.brand) rest.marca = enrichment.brand
+  if (enrichment.model) rest.modelo = enrichment.model
+  if (enrichment.submodel) rest.submodelo = enrichment.submodel
+  if (enrichment.version) rest.versao = enrichment.version
+  if (enrichment.modelYear != null) rest.anoModelo = String(enrichment.modelYear)
   return rest
+}
+
+/**
+ * Extrai enriquecimento do veículo (logo, marca, modelo, submodelo, versão,
+ * ano do modelo e resumo FIPE) do payload da API de placas.
+ * Suporta formato apiplacas ({ marca, modelo, logo, fipe.dados[] }) e wdapi2.
+ */
+export function extractPlateEnrichment(
+  data: Record<string, unknown>,
+): VehiclePlateEnrichment {
+  const asStr = (v: unknown): string => {
+    if (typeof v === 'string' && v.trim()) return v.trim()
+    return ''
+  }
+  const asNum = (v: unknown): number | null => {
+    const n = typeof v === 'number' ? v : Number(v)
+    return Number.isFinite(n) ? n : null
+  }
+
+  // apiplacas: top-level "marca"/"modelo"/"logo"; wdapi2: "marca"/"modelo"
+  const brand = asStr(data.marca) || asStr(data.textoMarca) || asStr(data.brand)
+  const model =
+    asStr(data.modelo) ||
+    asStr(data.model) ||
+    asStr(data.textoModelo) ||
+    asStr(data.vehicleModel)
+  const submodel = asStr(data.submodelo) || asStr(data.subModelo) || asStr(data.submodel)
+  const version = asStr(data.versao) || asStr(data.version)
+  const modelYear = asNum(data.anoModelo) || asNum(data.ano_modelo) || asNum(data.modelYear)
+
+  // logo pode vir como string pura ou em comando @url:`...`
+  const rawLogo = asStr(data.logo)
+  const logoUrl = rawLogo.replace(/^@url:`?/, '').replace(/`?$/, '').trim() || undefined
+
+  const fipePublic = extractFipePublic(data)
+
+  return {
+    brand: brand || undefined,
+    model: model || undefined,
+    submodel: submodel || undefined,
+    version: version || undefined,
+    modelYear,
+    logoUrl,
+    fipePublic,
+  }
 }

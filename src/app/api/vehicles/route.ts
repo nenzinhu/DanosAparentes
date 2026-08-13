@@ -20,7 +20,7 @@ export async function GET(req: NextRequest) {
 
     const { data, error } = await supabaseAdmin
       .from('vehicles')
-      .select('id, plate, brand, model, color, vehicle_type, vin, tenant_id, user_id, updated_at, created_at')
+      .select('id, plate, brand, model, color, vehicle_type, vin, tenant_id, user_id, updated_at, created_at, logo_url, fipe_public')
       .in('user_id', readable)
       .order('updated_at', { ascending: false })
       .limit(200)
@@ -35,7 +35,7 @@ export async function GET(req: NextRequest) {
     if (authz.tenantId && authz.role === 'owner') {
       const { data: tenantVehicles } = await supabaseAdmin
         .from('vehicles')
-        .select('id, plate, brand, model, color, vehicle_type, vin, tenant_id, user_id, updated_at, created_at')
+        .select('id, plate, brand, model, color, vehicle_type, vin, tenant_id, user_id, updated_at, created_at, logo_url, fipe_public')
         .eq('tenant_id', authz.tenantId)
         .order('updated_at', { ascending: false })
         .limit(200)

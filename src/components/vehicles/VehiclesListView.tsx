@@ -75,18 +75,39 @@ export default function VehiclesListView({
             href={`/app/vehicles/${encodeURIComponent(v.id)}`}
             className="rounded-xl border border-[var(--card-border)] bg-[var(--card-bg-solid)] p-4 flex items-center justify-between gap-4 hover:border-sky-500/40 transition-colors"
           >
-            <div className="min-w-0 flex-1">
-              <p className="font-display text-xl font-bold tracking-wide">{v.plate || '—'}</p>
-              <p
-                className="text-xs text-[var(--text-muted)] mt-0.5 truncate"
-                title={
-                  [v.brand, v.color].filter(Boolean).join(' ') +
-                  (v.lastLocation ? ` · ${v.lastLocation}` : '')
-                }
-              >
-                {[v.brand, v.color].filter(Boolean).join(' · ') || 'Veículo'}
-                {v.lastLocation ? ` · ${v.lastLocation}` : ''}
-              </p>
+            <div className="min-w-0 flex-1 flex items-center gap-3">
+              {v.logoUrl ? (
+                // logo da marca (enriquecimento via consulta de placa)
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={v.logoUrl}
+                  alt={`Logo ${v.brand || 'marca'}`}
+                  className="h-9 w-9 rounded-md object-contain bg-white/90 p-1 border border-[var(--card-border)] shrink-0"
+                  loading="lazy"
+                />
+              ) : (
+                <span className="h-9 w-9 rounded-md border border-[var(--card-border)] bg-[var(--panel-bg)] shrink-0" aria-hidden />
+              )}
+              <div className="min-w-0">
+                <p className="font-display text-xl font-bold tracking-wide">{v.plate || '—'}</p>
+                <p
+                  className="text-xs text-[var(--text-muted)] mt-0.5 truncate"
+                  title={
+                    [v.brand, v.color].filter(Boolean).join(' ') +
+                    (v.lastLocation ? ` · ${v.lastLocation}` : '')
+                  }
+                >
+                  {[v.brand, v.color].filter(Boolean).join(' · ') || 'Veículo'}
+                  {v.lastLocation ? ` · ${v.lastLocation}` : ''}
+                </p>
+                {v.fipePublic && typeof v.fipePublic === 'object' ? (
+                  <p className="text-[11px] text-[var(--text-muted)]/80 mt-0.5 truncate">
+                    FIPE: {String((v.fipePublic as Record<string, unknown>).textoMarca || '')}{' '}
+                    {String((v.fipePublic as Record<string, unknown>).textoModelo || '')}{' '}
+                    {String((v.fipePublic as Record<string, unknown>).valor || '')}
+                  </p>
+                ) : null}
+              </div>
             </div>
             <div className="flex flex-col items-end gap-1 text-right text-xs leading-snug">
               {v.cloudOnly ? (

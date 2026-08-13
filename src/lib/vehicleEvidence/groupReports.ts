@@ -20,6 +20,10 @@ export type VehicleHistorySummary = {
   lastInspectedAt: number | null
   /** Resumo FIPE do último laudo com consulta (só campos públicos). */
   fipe?: FipePublicSummary
+  /** URL do logo da marca (consulta de placa). */
+  logoUrl?: string | null
+  /** Resumo FIPE público bruto do veículo (sem códigos internos). */
+  fipePublic?: Record<string, unknown> | null
 }
 
 function syntheticVehicleId(plate: string): string {

@@ -39,6 +39,19 @@ export interface FipePublicSummary {
   textoModelo: string
   /** Ex.: "Gasolina" — opcional, quando a API envia. */
   combustivel?: string
+  /** URL do logo da marca (quando a API de placas envia). */
+  logoUrl?: string
+}
+
+/** Enriquecimento do veículo a partir da consulta de placa (apiplacas/wdapi). */
+export interface VehiclePlateEnrichment {
+  brand?: string
+  model?: string
+  submodel?: string
+  version?: string
+  modelYear?: number | null
+  logoUrl?: string
+  fipePublic?: FipePublicSummary | null
 }
 
 export interface VehicleInfo {

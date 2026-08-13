@@ -13,6 +13,8 @@ export type RemoteVehicleRow = {
   model?: string | null
   color?: string | null
   vehicle_type?: string | null
+  logo_url?: string | null
+  fipe_public?: Record<string, unknown> | null
   updated_at?: string | null
   created_at?: string | null
 }
@@ -56,6 +58,8 @@ export function mergeRemoteVehiclesIntoSummaries(
         brand: existing.brand || String(r.brand || ''),
         color: existing.color || String(r.color || ''),
         vehicleType: existing.vehicleType || r.vehicle_type || undefined,
+        logoUrl: existing.logoUrl ?? (r.logo_url || null),
+        fipePublic: existing.fipePublic ?? (r.fipe_public || null),
         cloudOnly: existing.reports.length === 0,
       })
       if (plate) platesCovered.add(plate)
@@ -71,6 +75,8 @@ export function mergeRemoteVehiclesIntoSummaries(
       brand: String(r.brand || ''),
       color: String(r.color || ''),
       vehicleType: r.vehicle_type || undefined,
+      logoUrl: r.logo_url || null,
+      fipePublic: r.fipe_public || null,
       reports: [],
       activeDamageCount: 0,
       newDamagesOnLast: 0,
