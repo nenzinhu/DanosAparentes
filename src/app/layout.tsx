@@ -235,6 +235,11 @@ export default function RootLayout({
                     areaServed: 'BR',
                     availableLanguage: ['Portuguese'],
                   },
+                  sameAs: [
+                    'https://www.linkedin.com/company/danosaparentes',
+                    'https://www.instagram.com/danosaparentes',
+                    'https://www.youtube.com/@danosaparentes',
+                  ],
                 },
                 {
                   '@type': 'WebSite',
