@@ -4,16 +4,14 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import Reveal from '../Reveal'
 import LupaVehicleReveal from '../LupaVehicleReveal'
 
-/** Anima a contagem de um número quando ele muda ou entra em viewport.
+/** Anima a contagem de um número quando ele muda.
  *  Respeita prefers-reduced-motion (mostra o valor final sem animar). */
 function useCountUp(target: number, duration = 600) {
   const [value, setValue] = useState(target)
-  const ref = useRef<HTMLSpanElement | null>(null)
   const fromRef = useRef(target)
   const rafRef = useRef<number | null>(null)
 
   useEffect(() => {
-    const node = ref.current
     const reduce = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (reduce) {
       setValue(target)
@@ -38,11 +36,10 @@ function useCountUp(target: number, duration = 600) {
     rafRef.current = requestAnimationFrame(tick)
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current)
-      fromRef.current = target
     }
   }, [target, duration])
 
-  return { value, ref }
+  return { value }
 }
 
 const brl = new Intl.NumberFormat('pt-BR', {
@@ -287,14 +284,14 @@ export default function RoiHistorySection() {
             <div className="rounded-xl border border-[var(--card-border)] bg-[var(--bg-main)]/70 px-6 py-6 text-center">
               <p className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--text-muted)]">Potencial de perdas não identificadas</p>
               <p className="mt-2 font-display text-3xl sm:text-4xl font-black text-[var(--text-main)] tracking-tight">
-                <span ref={monthlyCount.ref}>{brl.format(monthlyCount.value)}</span>
+                <span>{brl.format(monthlyCount.value)}</span>
                 <span className="text-base sm:text-lg font-bold text-[var(--text-muted)]">/mês</span>
               </p>
             </div>
             <div className="rounded-xl border border-[var(--signal-bright)]/35 bg-[color-mix(in_srgb,var(--signal)_8%,transparent)] px-6 py-6 text-center">
               <p className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--signal-bright)]">Projeção anual</p>
               <p className="mt-2 font-display text-3xl sm:text-4xl font-black text-[var(--signal-bright)] tracking-tight">
-                <span ref={annualCount.ref}>{brl.format(annualCount.value)}</span>
+                <span>{brl.format(annualCount.value)}</span>
                 <span className="text-base sm:text-lg font-bold text-[var(--text-muted)]">/ano</span>
               </p>
             </div>
