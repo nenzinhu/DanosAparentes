@@ -29,7 +29,7 @@ export default function ProblemSection() {
             Imagine uma empresa com 1.500 carros
           </h2>
           <p className="mt-5 text-sm sm:text-base text-[var(--text-muted)] leading-relaxed max-w-lg">
-            Ela não quer somente saber como o carro está hoje.
+            Danos aparecem. O problema não é apenas registrá-los — é provar quando surgiram, onde estavam e em que condição o veículo chegou.
           </p>
           <p className="mt-3 text-sm sm:text-base text-[var(--text-main)] leading-relaxed max-w-lg font-semibold">
             Ela quer saber o histórico completo de cada veículo.

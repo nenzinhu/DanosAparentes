@@ -28,6 +28,9 @@ export default function FinalCtaSection() {
           Registre inspeções. Organize evidências. Compare a linha do tempo. Emita dossiês técnicos com rastreabilidade
           completa.
         </p>
+        <p className="mt-4 font-display text-base sm:text-lg font-bold text-[var(--signal-bright)] tracking-tight [text-wrap:balance]">
+          Registre o presente. Construa o histórico. Proteja o futuro do veículo.
+        </p>
 
         <div className="flex flex-col items-center justify-center gap-3 mt-9">
           <LandingCtaLink

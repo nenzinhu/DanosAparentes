@@ -46,24 +46,6 @@ const STEPS = [
     title: 'Uma nova camada é acrescentada',
     body: 'Cada inspeção NÃO substitui a anterior — ela soma uma camada permanente à memória digital do veículo.',
   },
-  {
-    id: 'comparar',
-    n: '8',
-    title: 'Faça uma nova inspeção',
-    body: 'Na entrega, devolução ou qualquer novo momento, registre de novo. O histórico continua crescendo.',
-  },
-  {
-    id: 'comparacao',
-    n: '9',
-    title: 'Compare os momentos',
-    body: 'Na Linha do Tempo Veicular, coloque inspeções lado a lado e veja o que existia antes e o que há agora.',
-  },
-  {
-    id: 'alteracoes',
-    n: '10',
-    title: 'Identifique as alterações',
-    body: 'A comparação revela o que mudou — um novo dano, um reparo ou a evolução de uma avaria já conhecida.',
-  },
 ] as const
 
 export default function HowItWorksHistorySection() {
