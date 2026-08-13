@@ -8,7 +8,7 @@ const SLIDES = [
     kind: 'image' as const,
     badge: 'INTELIGÊNCIA ARTIFICIAL',
     title: 'A IA é protagonista: de evidência a histórico em segundos',
-    body: 'Analisa imagens, detecta danos, gera descrições e atualiza o histórico — com revisão humana e rastreabilidade completa.',
+    body: 'Analisa imagens, detecta danos, gera descrições e atualiza o histórico — com revisão humana e rastreabilidade completa. A IA identifica, sugere e organiza. A decisão final continua sendo humana.',
     image: '/landing/ia-sugestiva-confirma.webp',
     imageAlt:
       'Tela do app: IA sugere classificação de avaria (amassado grave na traseira) com opções Aceitar, Editar ou Ignorar',

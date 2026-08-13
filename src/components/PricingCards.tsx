@@ -212,7 +212,10 @@ export default function PricingCards({ salesViaChat = false }: { salesViaChat?: 
 
           <div className="my-6 min-h-[72px] flex flex-col justify-center">
             <span className="plan-price-anim text-3xl font-black text-[var(--text-main)] tracking-tight">
-              Sob Consulta
+              A partir de R$ 1.490/mês
+            </span>
+            <span className="text-[11px] text-[var(--text-muted)] mt-1 leading-snug">
+              Planos empresariais podem variar conforme volume, usuários e integração.
             </span>
           </div>
 

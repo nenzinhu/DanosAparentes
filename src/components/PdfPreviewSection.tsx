@@ -83,8 +83,9 @@ export default function PdfPreviewSection() {
           O relatório é o resultado do <span className="text-[var(--signal-bright)]">histórico</span>
         </h2>
         <p className="text-sm sm:text-base text-[var(--text-muted)] mt-4 max-w-2xl leading-relaxed">
-          Gere um relatório profissional com os dados organizados da vistoria, incluindo avarias, fotos, observações
+          Gere um relatório profissional com os dados organizados da inspeção, incluindo avarias, fotos, observações
           e informações de rastreabilidade. O histórico é o produto. O PDF é uma saída do produto.
+          O relatório pode ser exportado. A memória permanece.
         </p>
 
         <a

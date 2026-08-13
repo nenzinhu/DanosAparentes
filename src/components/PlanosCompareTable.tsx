@@ -143,8 +143,8 @@ export default function PlanosCompareTable() {
         Compare os recursos
       </h2>
       <p className="text-center text-sm text-[var(--text-muted)] mb-6 max-w-xl mx-auto">
-        Cada vistoria alimenta o histórico digital do veículo. O relatório PDF é uma das saídas desse
-        registro.
+        Cada registro alimenta o histórico digital do veículo. O relatório PDF é uma das saídas desse
+        registro. Planos Frotas / Enterprise a partir de R$ 1.490/mês, podendo variar conforme volume e integração.
       </p>
       <div className="overflow-x-auto rounded-xl border border-[var(--card-border)] bg-[var(--panel-bg)]">
         <table className="w-full min-w-[640px] text-left text-sm border-collapse">

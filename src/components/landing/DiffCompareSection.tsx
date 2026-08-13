@@ -70,7 +70,7 @@ export default function DiffCompareSection() {
         </GsapTextReveal>
         <p className="mt-4 text-sm text-[var(--text-muted)] max-w-2xl leading-relaxed">
           Identifique diferenças entre diferentes momentos do histórico do veículo — o PDF de entrada e o de retorno
-          mostram o antes e o depois.
+          mostram o antes e o depois. A verdadeira inteligência está em entender a evolução do veículo, não apenas registrar uma fotografia do presente.
         </p>
         <a
           href={PDF_FILE}

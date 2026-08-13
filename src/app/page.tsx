@@ -154,8 +154,8 @@ const FAQ_ITEMS = [
     a: 'Não. A plataforma funciona 100% offline. Você registra a inspeção no pátio e as evidências sincronizam automaticamente assim que conectar ao Wi-Fi ou 4G.',
   },
   {
-    q: 'O dossiê técnico tem validade para cobrança de avarias?',
-    a: 'Sim. Todos os dossiês contam com registro de data/hora, coordenadas de GPS, assinatura na tela e Hash digital de autenticidade no PDF.',
+    q: 'O histórico pode ajudar na comprovação de uma cobrança?',
+    a: 'O histórico organiza evidências, registros, fotos, datas e informações do veículo que podem apoiar processos de conferência, contestação e cobrança. A utilização jurídica de cada documento depende do contexto e da análise do caso concreto.',
   },
   {
     q: 'Posso colocar o logotipo da minha empresa?',
@@ -406,6 +406,13 @@ export default function LandingPage() {
         </div>
       </main>
 
+      {/* Assinatura conceitual da plataforma — logo abaixo da Hero */}
+      <section aria-label="Posicionamento" className="w-full z-10 relative border-y border-[var(--card-border)]/50 bg-[var(--panel-bg)]/40">
+        <p className="max-w-5xl mx-auto px-4 sm:px-8 py-4 text-center font-display text-base sm:text-lg font-semibold tracking-tight text-[var(--text-main)] [text-wrap:balance]">
+          Cada inspeção é um momento. <span className="text-[var(--signal-bright)]">O histórico é permanente.</span>
+        </p>
+      </section>
+
       {/* Custo de não ter histórico — seção de ROI (logo após a Hero) */}
       <RoiHistorySection />
 
@@ -436,7 +443,7 @@ export default function LandingPage() {
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-8 py-5 text-center space-y-2">
           <p className="text-sm sm:text-base font-bold text-[var(--text-main)] leading-snug">
-            “Zerou as discussões na devolução dos carros e evitou prejuízos.”
+            “Reduziu significativamente as discussões sobre quando e como o dano ocorreu na devolução dos veículos.”
           </p>
           <p className="text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
             Marcelo R., Gerente de Operações em Locadora —{' '}
